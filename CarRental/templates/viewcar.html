@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+{% block content %}
+
+<style>
+    .itemcontainer{
+        margin: auto;
+        width: 90%;
+        height: 300px;
+        border: 4px solid gray;
+        padding: 20px;
+    }
+</style>
+
+<div class="container text-center ">
+<h1>CarView view</h1>
+
+    <div class="row">
+        {% for item in product %}
+        <div class="col-md-4">
+            <div class="itemcontainer">
+<h3>{{item.Product_Name}}</h3>
+<h4>{{item.Product_Brand}}</h4>
+<h4>Price Rs{{item.Product_Price}} Per Day</h4>
+<p>{{item.Produt_Discription}}</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="itemcontainer">
+                <img src="{{item.Product_Image.url}}" style="width:100%; height: 200px;" alt="">
+            </div>
+
+        </div>
+        
+        {% endfor %}
+    </div>
+</div>
+<br><br><br>
+{% endblock %}

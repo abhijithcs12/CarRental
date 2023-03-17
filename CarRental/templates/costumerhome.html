@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1>Welcome to the Car Rental App</h1>
+    <p>Choose an option:</p>
+    <ul>
+        <li><a href="{% url 'car_list' %}">View Available Cars</a></li>
+        <li><a href="{% url 'reservation' %}">Make a Reservation</a></li>
+    </ul>
+{% endblock %}

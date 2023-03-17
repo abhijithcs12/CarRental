@@ -1,0 +1,37 @@
+{% extends "admin.html" %}
+{% block content %}
+
+<div class="container">
+    {% for message in messages %}
+        <h6 style="color:red">{{message}}</h6>
+    {% endfor %}
+    <table class="table table-stripped bg-info text-dark">
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Brand</th>
+            <th>Categoray</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+       {% for product in products %}
+        <tr>
+            <td>{{product.Product_Name}}</td>
+            <td>{{product.Product_Price}}</td>
+            <td>{{product.Product_Brand}}</td>
+            <td>{{product.Product_Category}}</td>
+            <td><img src="{{product.Product_Image.url}}" style="height: 70px;width:auto" alt=""></td>
+            <td>
+                <form action="{%url 'UpdateCar'  product.ProductId %}">
+                    <button type="submit" class="btn btn-warning">Update</button>
+                </form>
+
+                <a href="{%url 'DeleteCar' product.ProductId %}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}
